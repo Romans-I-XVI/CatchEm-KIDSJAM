@@ -11,14 +11,16 @@ namespace CatchEm
         public static Texture2D texture = Core.content.Load<Texture2D>(Content.Textures.ball);
         public Vector2 velocity { get; set; }
         bool HasCollided = false;
+        Player _player;
 
-        public Pokeball(Vector2 position, Vector2 velocity)
+        public Pokeball(Player player, Vector2 position, Vector2 velocity)
         {
+            this._player = player;
             this.position = position;
             this.velocity = velocity;
             addComponent(new Sprite(texture));
             var main_collider = new CircleCollider();
-            main_collider.collidesWithLayers = 2;
+            main_collider.collidesWithLayers = (1 << 2) | (1 << 3);
             addComponent(main_collider);
             addComponent(new Gravity());
             addComponent(new Friction(main_collider));
@@ -28,9 +30,21 @@ namespace CatchEm
         {
             base.update();
 
-            bool collided = getComponent<Friction>().process();
+            CollisionResult collisionResult;
+            collisionResult = getComponent<Friction>().process();
 
-            if (collided)
+            if (!HasCollided && collisionResult.collider != null && !(collisionResult.collider.entity is Pokemon && ((Pokemon)collisionResult.collider.entity).Caught))
+            {
+                HasCollided = true;
+                if (collisionResult.collider.entity is Pokemon && _player != null)
+                {
+                    var pokemon = (Pokemon)collisionResult.collider.entity;
+                    pokemon.Catch(_player.CaughtPokemon);
+                    _player.CaughtPokemon++;
+                }
+            }
+
+            if (collisionResult.collider != null)
                 HasCollided = true;
 
             position += new Vector2(velocity.X * Time.deltaTime, velocity.Y * Time.deltaTime);

@@ -10,6 +10,8 @@ namespace CatchEm
     public class Player : Entity, IVelocity
     {
         public static Texture2D texture = Core.content.Load<Texture2D>(Content.Textures.player);
+
+        public int CaughtPokemon = 1;
         public Vector2 velocity { get; set; }
         public List<Vector2> positions = new List<Vector2>();
         Collider _collider_feet;
@@ -17,7 +19,6 @@ namespace CatchEm
         Collider _collider_side1;
         Collider _collider_side2;
         const float ball_speed = 1000;
-        int _caught_pokemon = 1;
 
 
         public Player(Camera scene_camera)
@@ -49,10 +50,10 @@ namespace CatchEm
                 new Vector2(texture.Width / 2, texture.Height / 2 - 10),
                 new Vector2(texture.Width / 2 - 10, texture.Height / 2)
             });
-            _collider_head.collidesWithLayers = 2;
-            _collider_feet.collidesWithLayers = 2;
-            _collider_side1.collidesWithLayers = 2;
-            _collider_side2.collidesWithLayers = 2;
+            _collider_head.collidesWithLayers = (1 << 2);
+            _collider_feet.collidesWithLayers = (1 << 2);
+            _collider_side1.collidesWithLayers = (1 << 2);
+            _collider_side2.collidesWithLayers = (1 << 2);
             addComponent(_collider_feet);
             addComponent(_collider_head);
             addComponent(_collider_side1);
@@ -62,14 +63,6 @@ namespace CatchEm
 
         public override void update()
         {
-            foreach (Pokemon item in scene.entitiesOfType<Pokemon>())
-            {
-                if (!item.Caught)
-                {
-                    item.Catch(_caught_pokemon);
-                    _caught_pokemon++;
-                }
-            }
             base.update();
 
             var deltaMovement = new Vector2(velocity.X * Time.deltaTime, velocity.Y * Time.deltaTime);
@@ -83,13 +76,13 @@ namespace CatchEm
             {
                 var mouse_position = scene.camera.position + Input.mousePosition - new Vector2(1280 / 2, 720 / 2);
                 float mouse_rotation = (float)Math.Atan2(mouse_position.Y - position.Y, mouse_position.X - position.X);
-                scene.addEntity(new Pokeball(position, new Vector2((float)(Math.Cos(mouse_rotation) * ball_speed), (float)(Math.Sin(mouse_rotation) * ball_speed))));
+                scene.addEntity(new Pokeball(this, position, new Vector2((float)(Math.Cos(mouse_rotation) * ball_speed), (float)(Math.Sin(mouse_rotation) * ball_speed))));
             }
 
-            positions.Add(position);
-            while (positions.Count > (_caught_pokemon+1) * Pokemon.POSITION_OFFSET)
+            positions.Insert(0, position);
+            while (positions.Count > (CaughtPokemon+1) * Pokemon.POSITION_OFFSET + 10)
             {
-                positions.RemoveAt(0);
+                positions.RemoveAt(positions.Count - 1);
             }
 
         }

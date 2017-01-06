@@ -12,18 +12,16 @@ namespace CatchEm
             _collider = collider;
         }
 
-        public bool process()
+        public CollisionResult process()
         {
-            bool collided = false;
+            CollisionResult collisionResult = new CollisionResult();
             if (!(entity is IVelocity))
-                return false;
+                return collisionResult;
 
             var velocity = ((IVelocity)entity).velocity;
 
-            CollisionResult collisionResult = new CollisionResult();
             if (_collider.collidesWithAny(out collisionResult))
             {
-                collided = true;
                 //velocity = new Vector2(velocity.X * 0.99f, velocity.Y * 0.99f);
                 var y_flip = 1;
                 var x_flip = 1;
@@ -37,12 +35,11 @@ namespace CatchEm
                     velocity = new Vector2(velocity.X, 0);
                 if (Math.Abs(velocity.X) < 1)
                     velocity = new Vector2(0, velocity.Y);
-                Console.WriteLine(velocity.Y);
             }
 
             ((IVelocity)entity).velocity = velocity;
 
-            return collided;
+            return collisionResult;
         }
     }
 }

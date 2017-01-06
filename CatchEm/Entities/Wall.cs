@@ -16,7 +16,7 @@ namespace CatchEm
             addComponent(new Sprite(texture));
             //addComponent(new BoxCollider(-width / 2, -height / 2, width, height));
             addComponent(new BoxCollider());
-            getComponent<BoxCollider>().physicsLayer = 2;
+            getComponent<BoxCollider>().physicsLayer = (1 << 2);
             transform.scale = new Vector2(width / texture.Width, height / texture.Height);
         }
 

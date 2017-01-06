@@ -19,19 +19,19 @@ namespace CatchEm
         {
         }
 
-        //public static Vector2 MoveTowards(Vector2 current_pos, Vector2 dest_pos, float speed)
-        //{
-        //    float x_distance = current_pos.X - dest_pos.X;
-        //    float y_distance = current_pos.Y - dest_pos.Y;
-        //    float total_distance = (float)Math.Sqrt(x_distance * x_distance + y_distance * y_distance);
+        public static Vector2 MoveTowards(Vector2 current_pos, Vector2 dest_pos, float speed)
+        {
+            float x_distance = current_pos.X - dest_pos.X;
+            float y_distance = current_pos.Y - dest_pos.Y;
+            float total_distance = (float)Math.Sqrt(x_distance * x_distance + y_distance * y_distance);
 
-        //    float angle = (float)Math.Atan2(y_distance, x_distance);
+            float angle = (float)Math.Atan2(y_distance, x_distance);
 
-        //    float x_speed = (float)(Math.Cos(angle) * speed);
-        //    float y_speed = (float)(Math.Sin(angle) * speed);
+            float x_speed = (float)(Math.Cos(angle) * speed);
+            float y_speed = (float)(Math.Sin(angle) * speed);
 
-        //    return current_pos -= new Vector2(x_speed, y_speed);
-        //}
+            return current_pos -= new Vector2(x_speed, y_speed);
+        }
 
         public void update()
         {

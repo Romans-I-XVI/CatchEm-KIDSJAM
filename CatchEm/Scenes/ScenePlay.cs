@@ -1,4 +1,5 @@
 ﻿using System;
+using Microsoft.Xna.Framework;
 using Nez;
 
 namespace CatchEm
@@ -32,24 +33,14 @@ namespace CatchEm
             addEntity(new AimArrow(player));
 
             // Add Pokemon
-            addEntity(new Pokemon(Player.texture));
-            addEntity(new Pokemon(Player.texture));
-            addEntity(new Pokemon(Player.texture));
-            addEntity(new Pokemon(Player.texture));
-            addEntity(new Pokemon(Player.texture));
-            addEntity(new Pokemon(Player.texture));
-            addEntity(new Pokemon(Player.texture));
-            addEntity(new Pokemon(Player.texture));
-            addEntity(new Pokemon(Player.texture));
-            addEntity(new Pokemon(Player.texture));
-            addEntity(new Pokemon(Player.texture));
-            addEntity(new Pokemon(Player.texture));
-            addEntity(new Pokemon(Player.texture));
-            addEntity(new Pokemon(Player.texture));
-            addEntity(new Pokemon(Player.texture));
-            addEntity(new Pokemon(Player.texture));
-            addEntity(new Pokemon(Player.texture));
-            addEntity(new Pokemon(Player.texture));
+            addEntity(new Pokemon(Player.texture, new Vector2(200, 4200)));
+            addEntity(new Pokemon(Player.texture, new Vector2(200, 4400)));
+            addEntity(new Pokemon(Player.texture, new Vector2(200, 4600)));
+            addEntity(new Pokemon(Player.texture, new Vector2(200, 4800)));
+            addEntity(new Pokemon(Player.texture, new Vector2(600, 4200)));
+            addEntity(new Pokemon(Player.texture, new Vector2(800, 4200)));
+            addEntity(new Pokemon(Player.texture, new Vector2(900, 4200)));
+            addEntity(new Pokemon(Player.texture, new Vector2(1200, 4200)));
             //daddEntity(new Crosshair(camera));
         }
     }
