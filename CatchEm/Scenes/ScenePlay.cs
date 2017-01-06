@@ -5,6 +5,7 @@ using Microsoft.Xna.Framework;
 using Nez;
 using Newtonsoft.Json;
 using Microsoft.CSharp;
+using System.Collections.Generic;
 
 namespace CatchEm
 {
@@ -37,15 +38,9 @@ namespace CatchEm
             addEntity(new AimArrow(player));
 
             // Add Pokemon
-            //addEntity(new Pokemon(Player.texture, new Vector2(200, 4200)));
-            //addEntity(new Pokemon(Player.texture, new Vector2(200, 4400)));
-            //addEntity(new Pokemon(Player.texture, new Vector2(200, 4600)));
-            //addEntity(new Pokemon(Player.texture, new Vector2(200, 4800)));
-            //addEntity(new Pokemon(Player.texture, new Vector2(600, 4200)));
-            //addEntity(new Pokemon(Player.texture, new Vector2(800, 4200)));
-            //addEntity(new Pokemon(Player.texture, new Vector2(900, 4200)));
-            //addEntity(new Pokemon(Player.texture, new Vector2(1200, 4200)));
-            //daddEntity(new Crosshair(camera));
+            addEntity(new PathPokemon(new Vector2(1300, 3800), new List<Vector2>() { new Vector2(650, 3800), new Vector2(1700, 3800) }));
+            addEntity(new PathPokemon(new Vector2(1300, 3800), new List<Vector2>() { new Vector2(1950, 4200), new Vector2(2200, 4200) }, 2));
+            addEntity(new PathPokemon(new Vector2(1300, 3800), new List<Vector2>() { new Vector2(2250, 4200), new Vector2(2600, 4200) }, 2));
 
             // Add Walls
 

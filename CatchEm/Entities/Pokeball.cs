@@ -33,19 +33,16 @@ namespace CatchEm
             CollisionResult collisionResult;
             collisionResult = getComponent<Friction>().process();
 
-            if (!HasCollided && collisionResult.collider != null && !(collisionResult.collider.entity is Pokemon && ((Pokemon)collisionResult.collider.entity).Caught))
+            if (!HasCollided && collisionResult.collider != null)
             {
                 HasCollided = true;
                 if (collisionResult.collider.entity is Pokemon && _player != null)
                 {
                     var pokemon = (Pokemon)collisionResult.collider.entity;
-                    pokemon.Catch(_player.CaughtPokemon);
-                    _player.CaughtPokemon++;
+                    pokemon.Catch(_player.NumberOfPokemon);
+                    _player.NumberOfPokemon++;
                 }
             }
-
-            if (collisionResult.collider != null)
-                HasCollided = true;
 
             position += new Vector2(velocity.X * Time.deltaTime, velocity.Y * Time.deltaTime);
 

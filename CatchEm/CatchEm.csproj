@@ -61,8 +61,11 @@
     <Compile Include="Entities\AimArrow.cs" />
     <Compile Include="Entities\Pokeball.cs" />
     <Compile Include="Entities\Pokemon.cs" />
-    <Compile Include="Entities\Pokemon\FlyingPokemon.cs" />
+    <Compile Include="Entities\Pokemon\PathPokemon.cs" />
     <Compile Include="Utilities.cs" />
+    <Compile Include="Tweens.cs" />
+    <Compile Include="GameTimeSpan.cs" />
+    <Compile Include="Entities\Pokemon\CaughtPokemon.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Icon.png" />

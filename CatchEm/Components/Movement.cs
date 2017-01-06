@@ -23,14 +23,20 @@ namespace CatchEm
         {
             float x_distance = current_pos.X - dest_pos.X;
             float y_distance = current_pos.Y - dest_pos.Y;
-            float total_distance = (float)Math.Sqrt(x_distance * x_distance + y_distance * y_distance);
-
             float angle = (float)Math.Atan2(y_distance, x_distance);
 
             float x_speed = (float)(Math.Cos(angle) * speed);
             float y_speed = (float)(Math.Sin(angle) * speed);
 
             return current_pos -= new Vector2(x_speed, y_speed);
+        }
+
+        public static float TotalDistance(Vector2 position1, Vector2 position2)
+        {
+            float x_distance = position1.X - position2.X;
+            float y_distance = position1.Y - position2.Y;
+            float total_distance = (float)Math.Sqrt(x_distance * x_distance + y_distance * y_distance);
+            return total_distance;
         }
 
         public void update()

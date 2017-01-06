@@ -11,7 +11,7 @@ namespace CatchEm
     {
         public static Texture2D texture = Core.content.Load<Texture2D>(Content.Textures.player);
 
-        public int CaughtPokemon = 1;
+        public int NumberOfPokemon = 1;
         public Vector2 velocity { get; set; }
         public List<Vector2> positions = new List<Vector2>();
         Collider _collider_feet;
@@ -80,7 +80,7 @@ namespace CatchEm
             }
 
             positions.Insert(0, position);
-            while (positions.Count > (CaughtPokemon+1) * Pokemon.POSITION_OFFSET + 10)
+            while (positions.Count > (NumberOfPokemon+1) * CaughtPokemon.POSITION_OFFSET + 10)
             {
                 positions.RemoveAt(positions.Count - 1);
             }
