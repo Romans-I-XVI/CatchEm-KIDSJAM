@@ -11,6 +11,9 @@ namespace CatchEm
         public Vector2 velocity { get; set; }
         private bool _reached_player = false;
         Texture2D _texture;
+
+        public float RespawnRate = 40;
+
         public Pokemon(Texture2D texture, Vector2 position)
         {
             _texture = texture;
@@ -24,6 +27,11 @@ namespace CatchEm
         public void Catch(int caught_index)
         {
             scene.addEntity(new CaughtPokemon(_texture, position, caught_index));
+            var sprite = getComponent<Sprite>();
+            var collider = getComponent<BoxCollider>();
+            sprite.enabled = false;
+            collider.enabled = false;
+            Core.schedule(RespawnRate, (obj) => { sprite.enabled = true; collider.enabled = true; });
         }
 
         public override void update()
