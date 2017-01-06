@@ -1,9 +1,10 @@
 ﻿using System;
+using Microsoft.Xna.Framework;
 using Nez;
 
 namespace CatchEm
 {
-    public class Friction : Component, IUpdatable
+    public class Friction : Component
     {
         Collider _collider;
         public Friction(Collider collider)
@@ -11,13 +12,37 @@ namespace CatchEm
             _collider = collider;
         }
 
-        public void update()
+        public bool process()
         {
-            CollisionResult collisionResult;
-            Console.WriteLine(_collider.collidesWithAny(out collisionResult));
+            bool collided = false;
+            if (!(entity is IVelocity))
+                return false;
+
+            var velocity = ((IVelocity)entity).velocity;
+
+            CollisionResult collisionResult = new CollisionResult();
             if (_collider.collidesWithAny(out collisionResult))
-                if (entity is IVelocity)
-                    ((IVelocity)entity).velocity *= new Microsoft.Xna.Framework.Vector2(0.94f, 0.94f);
+            {
+                collided = true;
+                //velocity = new Vector2(velocity.X * 0.99f, velocity.Y * 0.99f);
+                var y_flip = 1;
+                var x_flip = 1;
+                if ((collisionResult.minimumTranslationVector.X > 0 && velocity.X > 0) || (collisionResult.minimumTranslationVector.X < 0 && velocity.X < 0))
+                    x_flip = -1;
+                if ((collisionResult.minimumTranslationVector.Y > 0 && velocity.Y > 0) || (collisionResult.minimumTranslationVector.Y < 0 && velocity.Y < 0))
+                    y_flip = -1;
+                velocity *= new Vector2(x_flip, y_flip);
+                velocity *= new Vector2(0.99f, 0.60f);
+                if (Math.Abs(velocity.Y) < 50)
+                    velocity = new Vector2(velocity.X, 0);
+                if (Math.Abs(velocity.X) < 1)
+                    velocity = new Vector2(0, velocity.Y);
+                Console.WriteLine(velocity.Y);
+            }
+
+            ((IVelocity)entity).velocity = velocity;
+
+            return collided;
         }
     }
 }

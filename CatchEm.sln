@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CatchEm", "CatchEm\CatchEm.csproj", "{39D50C80-C992-4114-BD48-F69D2B6D184D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nez", "..\..\Nez\Nez.Portable\Nez.csproj", "{60B7197D-D0D5-405C-90A2-A56903E9B039}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nez", "..\Nez\Nez.Portable\Nez.csproj", "{60B7197D-D0D5-405C-90A2-A56903E9B039}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

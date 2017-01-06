@@ -54,6 +54,9 @@
       <DependentUpon>ContentPathGenerator.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\Crosshair.cs" />
+    <Compile Include="Entities\AimArrow.cs" />
+    <Compile Include="Entities\Pokeball.cs" />
+    <Compile Include="Entities\Pokemon.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Icon.png" />
@@ -104,16 +107,16 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Nez\Nez.Portable\Nez.csproj">
-      <Project>{60B7197D-D0D5-405C-90A2-A56903E9B039}</Project>
-      <Name>Nez</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Folder Include="Scenes\" />
     <Folder Include="Entities\" />
     <Folder Include="Components\" />
     <Folder Include="Interfaces\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Nez\Nez.Portable\Nez.csproj">
+      <Project>{60B7197D-D0D5-405C-90A2-A56903E9B039}</Project>
+      <Name>Nez</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Content.Builder.targets" />

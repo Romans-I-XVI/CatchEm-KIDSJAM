@@ -21,7 +21,7 @@ namespace CatchEm
         {
             base.update();
             transform.position = Input.mousePosition + (_follow_camera.position - new Microsoft.Xna.Framework.Vector2(1280/2, 720/2));
-            Console.WriteLine(transform.position);
+            //Console.WriteLine(transform.position);
         }
     }
 }

@@ -2,10 +2,10 @@
 *~
 
 # build
-CatchEm/[Oo]bj/
-CatchEm/[Bb]in/
-CatchEm/packages/
-CatchEm/TestResults/
+[Oo]bj/
+[Bb]in/
+packages/
+TestResults/
 
 # globs
 Makefile.in

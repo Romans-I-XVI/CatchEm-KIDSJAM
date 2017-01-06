@@ -4,8 +4,10 @@
   <Platform>DesktopGL</Platform>
   <Config />
   <SourceFiles>
-    <File>/home/asojka09/Development/MonoGame/CatchEm/CatchEm/CatchEm/Content/textures/crosshair.png</File>
-    <File>/home/asojka09/Development/MonoGame/CatchEm/CatchEm/CatchEm/Content/textures/player.png</File>
-    <File>/home/asojka09/Development/MonoGame/CatchEm/CatchEm/CatchEm/Content/textures/wall.png</File>
+    <File>/home/asojka09/Development/MonoGame/CatchEm/CatchEm/Content/textures/crosshair.png</File>
+    <File>/home/asojka09/Development/MonoGame/CatchEm/CatchEm/Content/textures/player.png</File>
+    <File>/home/asojka09/Development/MonoGame/CatchEm/CatchEm/Content/textures/wall.png</File>
+    <File>/home/asojka09/Development/MonoGame/CatchEm/CatchEm/Content/textures/arrow.png</File>
+    <File>/home/asojka09/Development/MonoGame/CatchEm/CatchEm/Content/textures/ball.png</File>
   </SourceFiles>
 </SourceFileCollection>
