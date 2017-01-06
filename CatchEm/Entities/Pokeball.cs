@@ -10,7 +10,7 @@ namespace CatchEm
     {
         public static Texture2D texture = Core.content.Load<Texture2D>(Content.Textures.ball);
         public Vector2 velocity { get; set; }
-        bool HasCollided = false;
+        public bool HasCollided = false;
         Player _player;
 
         public Pokeball(Player player, Vector2 position, Vector2 velocity)

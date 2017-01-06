@@ -14,6 +14,7 @@ namespace CatchEm
         {
             transform.position = new Vector2(x, y);
             addComponent(new Sprite(texture));
+            getComponent<Sprite>().setRenderLayer(100000000);
             //addComponent(new BoxCollider(-width / 2, -height / 2, width, height));
             addComponent(new BoxCollider());
             getComponent<BoxCollider>().physicsLayer = (1 << 2);

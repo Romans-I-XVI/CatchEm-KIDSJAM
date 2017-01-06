@@ -9,6 +9,7 @@ namespace CatchEm
     public class Pokemon : Entity, IVelocity
     {
         public const int POSITION_OFFSET = 10;
+        public static int PokemonLayer = 100;
         public bool Caught { get; private set; }
         public Vector2 velocity { get; set; }
         private bool _reached_player = false;
@@ -17,6 +18,7 @@ namespace CatchEm
         {
             this.position = position;
             addComponent(new Sprite(texture));
+            getComponent<Sprite>().setRenderLayer(100);
             addComponent(new BoxCollider());
             getComponent<BoxCollider>().physicsLayer = (1 << 2);
         }
@@ -28,11 +30,16 @@ namespace CatchEm
                 Caught = true;
                 _caught_index = caught_index;
                 getComponent<Collider>().enabled = false;
+                getComponent<Sprite>().setRenderLayer(PokemonLayer);
+                PokemonLayer++;
+                
             }
         }
 
         public override void update()
         {
+            Vector2 old_position = position;
+
             base.update();
             if (Caught)
             {
@@ -66,6 +73,12 @@ namespace CatchEm
                 UncaughtMovementProcessor();
                 position += new Vector2(velocity.X * Time.deltaTime, velocity.Y * Time.deltaTime);
             }
+
+            var sprite = getComponent<Sprite>();
+            if (old_position.X < position.X)
+                sprite.flipX = false;
+            else if (old_position.X > position.X)
+                sprite.flipX = true;
         }
 
         protected virtual void UncaughtMovementProcessor()

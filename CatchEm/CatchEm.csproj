@@ -57,6 +57,7 @@
     <Compile Include="Entities\AimArrow.cs" />
     <Compile Include="Entities\Pokeball.cs" />
     <Compile Include="Entities\Pokemon.cs" />
+    <Compile Include="Entities\Pokemon\FlyingPokemon.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Icon.png" />
@@ -111,6 +112,7 @@
     <Folder Include="Entities\" />
     <Folder Include="Components\" />
     <Folder Include="Interfaces\" />
+    <Folder Include="Entities\Pokemon\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Nez\Nez.Portable\Nez.csproj">

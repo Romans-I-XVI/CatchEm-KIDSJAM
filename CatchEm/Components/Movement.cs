@@ -40,7 +40,7 @@ namespace CatchEm
 
             var e = (IVelocity)entity;
 
-            if ((Input.isKeyPressed(Keys.Space)) && state != states.jumping)
+            if ((Input.isKeyDown(Keys.Space)) && state != states.jumping)
             {
                 state = states.jumping;
                 e.velocity += new Vector2(0, -(Gravity.accel * 25.2f));

@@ -71,11 +71,10 @@ namespace CatchEm
 
             position += deltaMovement;
 
-
+            var mouse_position = scene.camera.position + Input.mousePosition - new Vector2(1280 / 2, 720 / 2);
+            float mouse_rotation = (float)Math.Atan2(mouse_position.Y - position.Y, mouse_position.X - position.X);
             if (Input.leftMouseButtonPressed)
             {
-                var mouse_position = scene.camera.position + Input.mousePosition - new Vector2(1280 / 2, 720 / 2);
-                float mouse_rotation = (float)Math.Atan2(mouse_position.Y - position.Y, mouse_position.X - position.X);
                 scene.addEntity(new Pokeball(this, position, new Vector2((float)(Math.Cos(mouse_rotation) * ball_speed), (float)(Math.Sin(mouse_rotation) * ball_speed))));
             }
 
@@ -84,6 +83,14 @@ namespace CatchEm
             {
                 positions.RemoveAt(positions.Count - 1);
             }
+
+
+            // Flip sprite if necessary
+            var sprite = getComponent<Sprite>();
+            if (mouse_position.X < position.X)
+                sprite.flipX = true;
+            else if (mouse_position.X > position.X)
+                sprite.flipX = false;
 
         }
 
