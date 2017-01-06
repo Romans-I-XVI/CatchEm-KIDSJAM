@@ -25,6 +25,7 @@ namespace CatchEm
         {
             name = "player";
             var camera = new FollowCamera(this, scene_camera);
+
             camera.mapLockEnabled = true;
             camera.mapSize = new Vector2(5000, 5000);
             camera.followLerp = 0.5f;

@@ -12,13 +12,19 @@ namespace CatchEm
 
         public Wall(int x, int y, int width, int height)
         {
-            transform.position = new Vector2(x, y);
-            addComponent(new Sprite(texture));
-            getComponent<Sprite>().setRenderLayer(100000000);
-            //addComponent(new BoxCollider(-width / 2, -height / 2, width, height));
-            addComponent(new BoxCollider());
-            getComponent<BoxCollider>().physicsLayer = (1 << 2);
+            width = width * texture.Width;
+            height = height * texture.Height;
+            transform.position = new Vector2(x + width / 2, y + height / 2);
             transform.scale = new Vector2(width / texture.Width, height / texture.Height);
+            
+            var sprite = new TiledSprite(texture);
+            sprite.textureScale = new Vector2(1f / (width / texture.Width), 1f / (height / texture.Height));
+            sprite.setRenderLayer(100000000);
+            addComponent(sprite);
+
+            var collider = new BoxCollider();
+            collider.physicsLayer = (1 << 2);
+            addComponent(collider);
         }
 
         public override void update()
