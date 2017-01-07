@@ -6,6 +6,7 @@ namespace CatchEm
     public enum Tween
     {
         Linear,
+        LinearPause,
         Sinusoidal
     }
     public static class Tweens
@@ -18,6 +19,8 @@ namespace CatchEm
                     return LinearTween(start, finish, currentTime, duration);
                 case Tween.Sinusoidal:
                     return SinusoidalTween(start, finish, currentTime, duration);
+                case Tween.LinearPause:
+                    return LinearPauseTween(start, finish, currentTime, duration);
                 default:
                     return 0;
             }
@@ -29,6 +32,17 @@ namespace CatchEm
                 return finish;
             float change = finish - start;
             float time = currentTime / duration;
+            return change * time + start;
+        }
+
+        public static float LinearPauseTween(float start, float finish, float currentTime, float duration)
+        {
+            if (currentTime > duration || Math.Abs(duration) <= 0)
+                return finish;
+            float change = finish - start;
+            float time = (currentTime * 1.5f) / duration;
+            if (time > 1)
+                time = 1;
             return change * time + start;
         }
 

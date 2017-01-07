@@ -43,7 +43,7 @@ namespace CatchEm
             );
 
             float remaining_distance = Movement.TotalDistance(position, dest_position);
-            if (remaining_distance <= _speed)
+            if (movement_timer.TotalMilliseconds >= duration)
             {
                 movement_timer.Mark();
                 if (_path.Count > _dest_point + 1)

@@ -68,6 +68,11 @@
     <Compile Include="Entities\Pokemon\CaughtPokemon.cs" />
     <Compile Include="Entities\Pokemon\FlyingPokemon.cs" />
     <Compile Include="Entities\Pokemon\JumpingPokemon.cs" />
+    <Compile Include="Entities\Pokemon\StaticPokemon.cs" />
+    <Compile Include="Entities\Pokemon\WalkingPokemon.cs" />
+    <Compile Include="Entities\Pokemon\LargeStaticPokemon.cs" />
+    <Compile Include="Entities\Pokemon\DiggingPokemon.cs" />
+    <Compile Include="Entities\Pokemon\GhostPokemon.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Icon.png" />

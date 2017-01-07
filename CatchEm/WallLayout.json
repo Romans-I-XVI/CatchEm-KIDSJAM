@@ -24,10 +24,8 @@
 	{ x: 4150, y: 3800, width: 3, height: 1 },
 	{ x: 3850, y: 3650, width: 3, height: 1 },
 	{ x: 3550, y: 3500, width: 3, height: 1 },
-	{ x: 3350, y: 3500, width: 1, height: 1 },
-	{ x: 3150, y: 3500, width: 1, height: 1 },
-	{ x: 2950, y: 3400, width: 1, height: 1 },
-	{ x: 2750, y: 3300, width: 1, height: 1 },
+	{ x: 3000, y: 3500, width: 3, height: 1 },
+	{ x: 2750, y: 3500, width: 1, height: 1 },
     
     
 ]
