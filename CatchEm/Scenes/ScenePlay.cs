@@ -24,27 +24,31 @@ namespace CatchEm
             addEntity(new Wall(100 - 500, 50, 500 / 50, (map_height - 100) / 50));
             addEntity(new Wall(map_width - 100, 50, 500 / 50, (map_height - 100) / 50));
 
-            // Create Platforms
-            //addEntity(new Wall(500, map_height - 200, 100, 100));
-            //addEntity(new Wall(500 + 200 * 1, map_height - 200 * 1, 100, 100));
-            //addEntity(new Wall(500 + 200 * 2, map_height - 200 * 2, 100, 100));
-            //addEntity(new Wall(500 + 200 * 3, map_height - 200 * 3, 100, 100));
-            //addEntity(new Wall(500 + 200 * 4, map_height - 200 * 4, 100, 100));
-
 
             // Add Player
             var player = new Player(camera);
             addEntity(player);
             addEntity(new AimArrow(player));
 
-            // Add Pokemon
-            addEntity(new PathPokemon(new Vector2(1300, 3800), new List<Vector2>() { new Vector2(650, 3800), new Vector2(1700, 3800) }));
-            addEntity(new PathPokemon(new Vector2(1300, 3800), new List<Vector2>() { new Vector2(1950, 4200), new Vector2(2200, 4200) }, 2));
-            addEntity(new PathPokemon(new Vector2(1300, 3800), new List<Vector2>() { new Vector2(2250, 4200), new Vector2(2600, 4200) }, 2));
+            // Add Flying Pokemon
+            addEntity(new FlyingPokemon(new Vector2(1300, 3800), new List<Vector2>() { new Vector2(650, 3800), new Vector2(1700, 3800) }, 4));
+            addEntity(new FlyingPokemon(new Vector2(1300, 3800), new List<Vector2>() { new Vector2(1950, 4200), new Vector2(2200, 4200) }, 2));
+            addEntity(new FlyingPokemon(new Vector2(1300, 3800), new List<Vector2>() { new Vector2(2250, 4200), new Vector2(2600, 4200) }, 2));
+            addEntity(new FlyingPokemon(new Vector2(3050, 3050), new List<Vector2>() { 
+                new Vector2(3050, 3050-50),
+                new Vector2(3250, 3250-50),
+                new Vector2(3450, 3050-50),
+                new Vector2(3650, 3000-50),
+                new Vector2(3450, 3250-50),
+                new Vector2(3250, 3050-50),
+            }, 3, Tween.Linear));
+
+            // Add Static Pokemon
+            addEntity(new JumpingPokemon(new Vector2(625, 4400)));
+
+
 
             // Add Walls
-
-
             dynamic wall_data = JsonConvert.DeserializeObject(Utilities.ReadEmbeddedResource("WallLayout.json"));
             foreach (var wall in wall_data)
             {

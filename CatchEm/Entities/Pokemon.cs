@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Nez;
@@ -9,16 +10,18 @@ namespace CatchEm
     public class Pokemon : Entity, IVelocity
     {
         public Vector2 velocity { get; set; }
-        private bool _reached_player = false;
-        Texture2D _texture;
+        List<Texture2D> _textures;
+        int _current_texture;
+        Vector2 _old_position = new Vector2();
 
         public float RespawnRate = 40;
 
-        public Pokemon(Texture2D texture, Vector2 position)
+        public Pokemon(List<Texture2D> textures, Vector2 position)
         {
-            _texture = texture;
+            _current_texture = Nez.Random.range(0, textures.Count);
+            _textures = textures;
             this.position = position;
-            addComponent(new Sprite(texture));
+            addComponent(new Sprite(_textures[_current_texture]));
             getComponent<Sprite>().setRenderLayer(100);
             addComponent(new BoxCollider());
             getComponent<BoxCollider>().physicsLayer = (1 << 2);
@@ -26,31 +29,36 @@ namespace CatchEm
 
         public void Catch(int caught_index)
         {
-            scene.addEntity(new CaughtPokemon(_texture, position, caught_index));
+            scene.addEntity(new CaughtPokemon(_textures[_current_texture], position, caught_index));
             var sprite = getComponent<Sprite>();
             var collider = getComponent<BoxCollider>();
             sprite.enabled = false;
             collider.enabled = false;
-            Core.schedule(RespawnRate, (obj) => { sprite.enabled = true; collider.enabled = true; });
+            Core.schedule(RespawnRate, (obj) => { 
+                removeComponent<Sprite>();
+                _current_texture = Nez.Random.range(0, _textures.Count);
+                var new_texture = _textures[_current_texture];
+                addComponent<Sprite>(new Sprite(new_texture));
+                collider.width = new_texture.Width;
+                collider.height = new_texture.Height;
+                collider.enabled = true;
+            });
         }
 
         public override void update()
         {
-            Vector2 old_position = position;
-
             base.update();
-            UncaughtMovementProcessor();
+
             position += new Vector2(velocity.X * Time.deltaTime, velocity.Y * Time.deltaTime);
 
             var sprite = getComponent<Sprite>();
-            if (old_position.X < position.X)
+            if (_old_position.X < position.X)
                 sprite.flipX = false;
-            else if (old_position.X > position.X)
+            else if (_old_position.X > position.X)
                 sprite.flipX = true;
+            
+            _old_position = position;
         }
 
-        protected virtual void UncaughtMovementProcessor()
-        {
-        }
     }
 }

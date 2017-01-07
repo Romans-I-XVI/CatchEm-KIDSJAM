@@ -66,6 +66,8 @@
     <Compile Include="Tweens.cs" />
     <Compile Include="GameTimeSpan.cs" />
     <Compile Include="Entities\Pokemon\CaughtPokemon.cs" />
+    <Compile Include="Entities\Pokemon\FlyingPokemon.cs" />
+    <Compile Include="Entities\Pokemon\JumpingPokemon.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Icon.png" />

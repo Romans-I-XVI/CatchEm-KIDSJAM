@@ -9,20 +9,13 @@ namespace CatchEm
 {
     public class PathPokemon : Pokemon
     {
-        public static List<Texture2D> textures = new List<Texture2D>()
-        {
-            Core.content.Load<Texture2D>(Content.Textures.player),
-            Core.content.Load<Texture2D>(Content.Textures.player),
-            Core.content.Load<Texture2D>(Content.Textures.player),
-            Core.content.Load<Texture2D>(Content.Textures.player)
-        };
         int _dest_point = 0;
         float _speed;
         List<Vector2> _path;
         GameTimeSpan movement_timer = new GameTimeSpan();
         Tween _tween;
 
-        public PathPokemon(Vector2 position, List<Vector2> path, float speed = 5, Tween tween = Tween.Sinusoidal) : base(textures[Nez.Random.range(0, 4)], position)
+        public PathPokemon(List<Texture2D> textures, Vector2 position, List<Vector2> path, float speed = 5, Tween tween = Tween.Linear) : base(textures, position)
         {
             _tween = tween;
             _speed = speed;
@@ -32,7 +25,7 @@ namespace CatchEm
             velocity = new Vector2(speed, 0);
         }
 
-        protected override void UncaughtMovementProcessor()
+        public override void update()
         {
             Vector2 start_position;
             if (_dest_point > 0)
@@ -58,6 +51,7 @@ namespace CatchEm
                 else
                     _dest_point = 0;
             }
+            base.update();
         }
     }
 }
