@@ -4,10 +4,34 @@
   <Platform>DesktopGL</Platform>
   <Config />
   <SourceFiles>
+    <File>/home/asojka09/Development/MonoGame/CatchEm/CatchEm/Content/textures/pokemon/bellsprout.png</File>
+    <File>/home/asojka09/Development/MonoGame/CatchEm/CatchEm/Content/textures/pokemon/cubone.png</File>
+    <File>/home/asojka09/Development/MonoGame/CatchEm/CatchEm/Content/textures/pokemon/diglet.png</File>
+    <File>/home/asojka09/Development/MonoGame/CatchEm/CatchEm/Content/textures/pokemon/executor.png</File>
+    <File>/home/asojka09/Development/MonoGame/CatchEm/CatchEm/Content/textures/pokemon/flareon.png</File>
+    <File>/home/asojka09/Development/MonoGame/CatchEm/CatchEm/Content/textures/pokemon/gastly.png</File>
+    <File>/home/asojka09/Development/MonoGame/CatchEm/CatchEm/Content/textures/pokemon/gengar.png</File>
+    <File>/home/asojka09/Development/MonoGame/CatchEm/CatchEm/Content/textures/pokemon/geodude.png</File>
+    <File>/home/asojka09/Development/MonoGame/CatchEm/CatchEm/Content/textures/pokemon/gloom.png</File>
+    <File>/home/asojka09/Development/MonoGame/CatchEm/CatchEm/Content/textures/pokemon/haunter.png</File>
+    <File>/home/asojka09/Development/MonoGame/CatchEm/CatchEm/Content/textures/pokemon/hitmonlee.png</File>
+    <File>/home/asojka09/Development/MonoGame/CatchEm/CatchEm/Content/textures/pokemon/koffing.png</File>
+    <File>/home/asojka09/Development/MonoGame/CatchEm/CatchEm/Content/textures/pokemon/lapras.png</File>
+    <File>/home/asojka09/Development/MonoGame/CatchEm/CatchEm/Content/textures/pokemon/lapras_2.png</File>
+    <File>/home/asojka09/Development/MonoGame/CatchEm/CatchEm/Content/textures/pokemon/pikachu_1.png</File>
+    <File>/home/asojka09/Development/MonoGame/CatchEm/CatchEm/Content/textures/pokemon/pikachu_2.png</File>
+    <File>/home/asojka09/Development/MonoGame/CatchEm/CatchEm/Content/textures/pokemon/pinsir.png</File>
+    <File>/home/asojka09/Development/MonoGame/CatchEm/CatchEm/Content/textures/pokemon/snorlax.png</File>
+    <File>/home/asojka09/Development/MonoGame/CatchEm/CatchEm/Content/textures/pokemon/voltorb.png</File>
+    <File>/home/asojka09/Development/MonoGame/CatchEm/CatchEm/Content/textures/pokemon/vulpix.png</File>
+    <File>/home/asojka09/Development/MonoGame/CatchEm/CatchEm/Content/textures/arrow.png</File>
+    <File>/home/asojka09/Development/MonoGame/CatchEm/CatchEm/Content/textures/ball_1.png</File>
+    <File>/home/asojka09/Development/MonoGame/CatchEm/CatchEm/Content/textures/ball_2.png</File>
+    <File>/home/asojka09/Development/MonoGame/CatchEm/CatchEm/Content/textures/ball_3.png</File>
+    <File>/home/asojka09/Development/MonoGame/CatchEm/CatchEm/Content/textures/ball_4.png</File>
+    <File>/home/asojka09/Development/MonoGame/CatchEm/CatchEm/Content/textures/ball_5.png</File>
     <File>/home/asojka09/Development/MonoGame/CatchEm/CatchEm/Content/textures/crosshair.png</File>
     <File>/home/asojka09/Development/MonoGame/CatchEm/CatchEm/Content/textures/player.png</File>
     <File>/home/asojka09/Development/MonoGame/CatchEm/CatchEm/Content/textures/wall.png</File>
-    <File>/home/asojka09/Development/MonoGame/CatchEm/CatchEm/Content/textures/arrow.png</File>
-    <File>/home/asojka09/Development/MonoGame/CatchEm/CatchEm/Content/textures/ball.png</File>
   </SourceFiles>
 </SourceFileCollection>

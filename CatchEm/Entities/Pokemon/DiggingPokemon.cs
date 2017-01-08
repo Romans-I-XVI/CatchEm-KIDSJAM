@@ -11,10 +11,7 @@ namespace CatchEm
     {
         public static List<Texture2D> textures = new List<Texture2D>()
         {
-            Core.content.Load<Texture2D>(Content.Textures.player),
-            Core.content.Load<Texture2D>(Content.Textures.player),
-            Core.content.Load<Texture2D>(Content.Textures.player),
-            Core.content.Load<Texture2D>(Content.Textures.player)
+            Core.content.Load<Texture2D>(Content.Textures.Pokemon.diglet)
         };
 
         public DiggingPokemon(Vector2 position, List<Vector2> path, float speed = 2, Tween tween = Tween.LinearPause) : base(textures, position, path, speed, tween)

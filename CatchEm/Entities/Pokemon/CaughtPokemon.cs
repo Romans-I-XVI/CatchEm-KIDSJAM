@@ -12,9 +12,11 @@ namespace CatchEm
         public static int PokemonLayer = 100;
         private bool _reached_player = false;
         int _caught_index = 0;
+        Texture2D _texture;
 
         public CaughtPokemon(Texture2D texture, Vector2 position, int caught_index)
         {
+            _texture = texture;
             this.position = position;
             _caught_index = caught_index;
             addComponent(new Sprite(texture));
@@ -35,6 +37,7 @@ namespace CatchEm
             if (player.positions.Count > _caught_index * POSITION_OFFSET)
             {
                 var dest_position = player.positions[_caught_index * POSITION_OFFSET];
+                dest_position.Y += (100 - _texture.Height) / 2;
                 if (!_reached_player)
                 {
                     position = Movement.MoveTowards(position, dest_position, total_distance * 0.1f);

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Nez;
@@ -8,7 +9,16 @@ namespace CatchEm
 {
     public class Pokeball : Entity, IVelocity
     {
-        public static Texture2D texture = Core.content.Load<Texture2D>(Content.Textures.ball);
+        List<Texture2D> textures = new List<Texture2D>()
+        {
+            Core.content.Load<Texture2D>(Content.Textures.ball_1),
+            Core.content.Load<Texture2D>(Content.Textures.ball_2),
+            Core.content.Load<Texture2D>(Content.Textures.ball_3),
+            Core.content.Load<Texture2D>(Content.Textures.ball_4),
+            Core.content.Load<Texture2D>(Content.Textures.ball_4),
+            Core.content.Load<Texture2D>(Content.Textures.ball_4),
+            //Core.content.Load<Texture2D>(Content.Textures.ball_5)
+        };
         public Vector2 velocity { get; set; }
         public bool HasCollided = false;
         Player _player;
@@ -18,9 +28,9 @@ namespace CatchEm
             this._player = player;
             this.position = position;
             this.velocity = velocity;
-            addComponent(new Sprite(texture));
+            addComponent(new Sprite(textures[Nez.Random.range(0, textures.Count)]));
             var main_collider = new CircleCollider();
-            main_collider.collidesWithLayers = (1 << 2) | (1 << 3);
+            main_collider.collidesWithLayers = (1 << 2) | (1 << 3) | (1 << 4);
             addComponent(main_collider);
             addComponent(new Gravity());
             addComponent(new Friction(main_collider));

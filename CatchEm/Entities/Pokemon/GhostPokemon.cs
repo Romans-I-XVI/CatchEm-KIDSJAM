@@ -29,6 +29,7 @@ namespace CatchEm
 
         public GhostPokemon(Vector2 position) : base(textures, position)
         {
+            getComponent<Collider>().physicsLayer = (1 << 4);
         }
 
         public override void update()
