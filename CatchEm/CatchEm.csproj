@@ -73,6 +73,7 @@
     <Compile Include="Entities\Pokemon\LargeStaticPokemon.cs" />
     <Compile Include="Entities\Pokemon\DiggingPokemon.cs" />
     <Compile Include="Entities\Pokemon\GhostPokemon.cs" />
+    <Compile Include="Entities\Pokemon\OnyxPokemon.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Icon.png" />

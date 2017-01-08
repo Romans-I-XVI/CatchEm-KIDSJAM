@@ -16,8 +16,6 @@ namespace CatchEm
             Core.content.Load<Texture2D>(Content.Textures.Pokemon.executor),
         };
 
-        readonly GameTimeSpan _timer = new GameTimeSpan();
-
         public LargeStaticPokemon(Vector2 position) : base(textures, position)
         {
             RespawnRate = 240;

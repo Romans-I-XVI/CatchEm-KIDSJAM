@@ -48,15 +48,17 @@ namespace CatchEm
             addEntity(new JumpingPokemon(new Vector2(2750 + 25, 3500 - 400)));
 
             // Add Static Pokemon
-            addEntity(new SmallStaticPokemon(new Vector2(650 + 25, 4850 + 15)));
+            addEntity(new SmallStaticPokemon(new Vector2(650 + 25, 4850 + 20)));
+            addEntity(new SmallStaticPokemon(new Vector2(4850 + 25, 3900 + 20)));
             addEntity(new LargeStaticPokemon(new Vector2(200, 3650)));
             addEntity(new LargeStaticPokemon(new Vector2(4775, 4800)));
 
             // Add Walking Pokemon
-            addEntity(new WalkingPokemon(new Vector2(1300, 3800), new List<Vector2>() { new Vector2(2550, 4850 + 15), new Vector2(3000, 4850 + 25) }, 1));
-            addEntity(new WalkingPokemon(new Vector2(1300, 3800), new List<Vector2>() { new Vector2(2100, 4850 + 15), new Vector2(2450, 4850 + 25) }, 1));
+            addEntity(new WalkingPokemon(new Vector2(2550, 4850+10), new List<Vector2>() { new Vector2(2550, 4850 + 10), new Vector2(3000, 4850 + 10) }, 1));
+            addEntity(new WalkingPokemon(new Vector2(2550, 4850 + 10), new List<Vector2>() { new Vector2(2100, 4850 + 10), new Vector2(2450, 4850 + 10) }, 1));
+            addEntity(new OnyxPokemon(new Vector2(300, 3150+10), new List<Vector2>() { new Vector2(1000, 3150 + 10), new Vector2(300, 3150 + 10) }, 1));
 
-            // Add Digging Pokemon
+            // Add Digging Pokemond 
             addEntity(new DiggingPokemon(new Vector2(3450 + 25, 4900 + 30), new List<Vector2>() { new Vector2(3450 + 25, 4900 ), new Vector2(3450 + 25, 4850 + 200) }, 0.85f));
             addEntity(new DiggingPokemon(new Vector2(3550 + 25, 4900 + 30), new List<Vector2>() { new Vector2(3550 + 25, 4900 ), new Vector2(3550 + 25, 4850 + 200) }, 0.8f));
             addEntity(new DiggingPokemon(new Vector2(3650 + 25, 4900 + 30), new List<Vector2>() { new Vector2(3650 + 25, 4900 ), new Vector2(3650 + 25, 4850 + 200) }, 0.75f));

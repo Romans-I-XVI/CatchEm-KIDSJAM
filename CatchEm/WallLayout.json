@@ -21,6 +21,7 @@
 	{ x: 4600, y: 4350, width: 1, height: 11 , type: 1},
 
 	{ x: 4450, y: 3950, width: 3, height: 1 , type: 1},
+	{ x: 4850, y: 3950, width: 1, height: 1 , type: 1},
 	{ x: 4150, y: 3800, width: 3, height: 1 , type: 1},
 	{ x: 3850, y: 3650, width: 3, height: 1 , type: 1},
 	{ x: 3550, y: 3500, width: 3, height: 1 , type: 1},

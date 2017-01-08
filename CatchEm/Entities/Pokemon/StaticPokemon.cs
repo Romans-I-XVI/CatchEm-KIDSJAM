@@ -14,6 +14,9 @@ namespace CatchEm
             Core.content.Load<Texture2D>(Content.Textures.Pokemon.bellsprout),
             Core.content.Load<Texture2D>(Content.Textures.Pokemon.gloom),
             Core.content.Load<Texture2D>(Content.Textures.Pokemon.voltorb),
+            Core.content.Load<Texture2D>(Content.Textures.Pokemon.electrode),
+            Core.content.Load<Texture2D>(Content.Textures.Pokemon.chansey),
+            Core.content.Load<Texture2D>(Content.Textures.Pokemon.shelder),
         };
 
         readonly GameTimeSpan _timer = new GameTimeSpan();

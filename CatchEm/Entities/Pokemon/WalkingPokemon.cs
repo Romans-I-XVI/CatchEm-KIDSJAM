@@ -12,6 +12,8 @@ namespace CatchEm
         {
             Core.content.Load<Texture2D>(Content.Textures.Pokemon.flareon),
             Core.content.Load<Texture2D>(Content.Textures.Pokemon.vulpix),
+            Core.content.Load<Texture2D>(Content.Textures.Pokemon.duduo),
+            Core.content.Load<Texture2D>(Content.Textures.Pokemon.dotrio),
         };
 
         public WalkingPokemon(Vector2 position, List<Vector2> path, float speed = 5, Tween tween = Tween.LinearPause) : base(textures, position, path, speed, tween)

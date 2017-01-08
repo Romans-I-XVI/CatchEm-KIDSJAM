@@ -13,7 +13,11 @@ namespace CatchEm
             Core.content.Load<Texture2D>(Content.Textures.Pokemon.hitmonlee),
             Core.content.Load<Texture2D>(Content.Textures.Pokemon.pinsir),
             Core.content.Load<Texture2D>(Content.Textures.Pokemon.pikachu_1),
-            Core.content.Load<Texture2D>(Content.Textures.Pokemon.pikachu_2)
+            Core.content.Load<Texture2D>(Content.Textures.Pokemon.pikachu_2),
+            Core.content.Load<Texture2D>(Content.Textures.Pokemon.drowsy),
+            Core.content.Load<Texture2D>(Content.Textures.Pokemon.squirtle),
+            Core.content.Load<Texture2D>(Content.Textures.Pokemon.squirtle_2),
+            Core.content.Load<Texture2D>(Content.Textures.Pokemon.dratini)
         };
 
         readonly GameTimeSpan _timer = new GameTimeSpan();

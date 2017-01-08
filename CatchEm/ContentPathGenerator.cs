@@ -10,8 +10,14 @@ namespace Nez
 			public static class Pokemon
 			{
 				public const string bellsprout = @"textures/pokemon/bellsprout";
+				public const string chansey = @"textures/pokemon/chansey";
 				public const string cubone = @"textures/pokemon/cubone";
 				public const string diglet = @"textures/pokemon/diglet";
+				public const string dotrio = @"textures/pokemon/dotrio";
+				public const string dratini = @"textures/pokemon/dratini";
+				public const string drowsy = @"textures/pokemon/drowsy";
+				public const string duduo = @"textures/pokemon/duduo";
+				public const string electrode = @"textures/pokemon/electrode";
 				public const string executor = @"textures/pokemon/executor";
 				public const string flareon = @"textures/pokemon/flareon";
 				public const string gastly = @"textures/pokemon/gastly";
@@ -23,10 +29,14 @@ namespace Nez
 				public const string koffing = @"textures/pokemon/koffing";
 				public const string lapras = @"textures/pokemon/lapras";
 				public const string lapras_2 = @"textures/pokemon/lapras_2";
+				public const string onyx = @"textures/pokemon/onyx";
 				public const string pikachu_1 = @"textures/pokemon/pikachu_1";
 				public const string pikachu_2 = @"textures/pokemon/pikachu_2";
 				public const string pinsir = @"textures/pokemon/pinsir";
+				public const string shelder = @"textures/pokemon/shelder";
 				public const string snorlax = @"textures/pokemon/snorlax";
+				public const string squirtle = @"textures/pokemon/squirtle";
+				public const string squirtle_2 = @"textures/pokemon/squirtle_2";
 				public const string voltorb = @"textures/pokemon/voltorb";
 				public const string vulpix = @"textures/pokemon/vulpix";
 			}
