@@ -16,6 +16,7 @@ namespace CatchEm
         public OnyxPokemon(Vector2 position, List<Vector2> path, float speed = 5, Tween tween = Tween.LinearPause) : base(textures, position, path, speed, tween)
         {
             RespawnRate = 300;
+            getComponent<Collider>().physicsLayer = (1 << 4);
         }
 
     }

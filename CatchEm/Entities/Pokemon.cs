@@ -14,7 +14,7 @@ namespace CatchEm
         int _current_texture;
         Vector2 _old_position = new Vector2();
 
-        public float RespawnRate = 90;
+        public float RespawnRate = 50;
 
         public Pokemon(List<Texture2D> textures, Vector2 position)
         {
@@ -36,7 +36,6 @@ namespace CatchEm
             collider.enabled = false;
             Core.schedule(RespawnRate, (obj) => {
                 var previous_layer_depth = getComponent<Sprite>().renderLayer;
-                Console.WriteLine(previous_layer_depth);
                 removeComponent<Sprite>();
                 _current_texture = Nez.Random.range(0, _textures.Count);
                 var new_texture = _textures[_current_texture];

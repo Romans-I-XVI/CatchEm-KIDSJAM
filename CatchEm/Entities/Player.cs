@@ -22,6 +22,7 @@ namespace CatchEm
         public Player(Camera scene_camera)
         {
             name = "player";
+            scene_camera.zoomOut(0.2f);
             var camera = new FollowCamera(this, scene_camera);
 
             camera.mapLockEnabled = true;
@@ -63,7 +64,7 @@ namespace CatchEm
 
             position += deltaMovement;
 
-            var mouse_position = scene.camera.position + Input.mousePosition - new Vector2(1280 / 2, 720 / 2);
+            var mouse_position = scene.camera.mouseToWorldPoint();
             float mouse_rotation = (float)Math.Atan2(mouse_position.Y - position.Y, mouse_position.X - position.X);
             if (Input.leftMouseButtonPressed)
             {

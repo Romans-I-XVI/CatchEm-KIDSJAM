@@ -15,7 +15,6 @@ namespace CatchEm
             using (StreamReader reader = new StreamReader(stream))
             {
                 string result = reader.ReadToEnd();
-                Console.WriteLine(result);
                 return result;
             }
         }

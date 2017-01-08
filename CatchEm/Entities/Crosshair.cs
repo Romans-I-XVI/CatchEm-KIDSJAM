@@ -1,4 +1,5 @@
 ﻿using System;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Nez;
 using Nez.Sprites;
@@ -20,8 +21,7 @@ namespace CatchEm
         public override void update()
         {
             base.update();
-            transform.position = Input.mousePosition + (_follow_camera.position - new Microsoft.Xna.Framework.Vector2(1280/2, 720/2));
-            //Console.WriteLine(transform.position);
+            transform.position = scene.camera.mouseToWorldPoint();
         }
     }
 }

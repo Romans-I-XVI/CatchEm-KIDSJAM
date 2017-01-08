@@ -13,7 +13,7 @@ namespace CatchEm
     public class Game1 : Core
     {
 
-        public Game1()
+        public Game1() : base(isFullScreen: true, windowTitle: "CatchEm")
         {
         }
         protected override void Initialize()

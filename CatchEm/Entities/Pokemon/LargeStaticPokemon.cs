@@ -19,6 +19,7 @@ namespace CatchEm
         public LargeStaticPokemon(Vector2 position) : base(textures, position)
         {
             RespawnRate = 240;
+            getComponent<Collider>().physicsLayer = (1 << 4);
         }
     }
 }

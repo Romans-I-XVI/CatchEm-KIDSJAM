@@ -50,6 +50,9 @@ namespace Nez
 			public const string crosshair = @"textures/crosshair";
 			public const string player = @"textures/player";
 			public const string wall = @"textures/wall";
+			public const string wall_1 = @"textures/wall_1";
+			public const string wall_2 = @"textures/wall_2";
+			public const string wall_3 = @"textures/wall_3";
 		}
 
 

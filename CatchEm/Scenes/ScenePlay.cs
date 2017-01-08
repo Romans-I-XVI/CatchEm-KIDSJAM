@@ -19,10 +19,10 @@ namespace CatchEm
             addRenderer(new DefaultRenderer());
 
             // Create Borders
-            addEntity(new Wall(-50, map_height - 100, (map_width + 100) / 50, 500 / 50));
-            addEntity(new Wall(-50, 100, map_width + 100, 500 / 50));
-            addEntity(new Wall(100 - 500, 50, 500 / 50, (map_height - 100) / 50));
-            addEntity(new Wall(map_width - 100, 50, 500 / 50, (map_height - 100) / 50));
+            addEntity(new Wall(-50, map_height - 100, (map_width + 100) / 50, 500 / 50, 2));
+            addEntity(new Wall(-50, 100, map_width + 100, 500 / 50, 2));
+            addEntity(new Wall(100 - 500, 50, 500 / 50, (map_height - 100) / 50, 2));
+            addEntity(new Wall(map_width - 100, 50, 500 / 50, (map_height - 100) / 50, 2));
 
 
             // Add Player
@@ -49,7 +49,7 @@ namespace CatchEm
 
             // Add Static Pokemon
             addEntity(new SmallStaticPokemon(new Vector2(650 + 25, 4850 + 20)));
-            addEntity(new SmallStaticPokemon(new Vector2(4850 + 25, 3900 + 20)));
+            addEntity(new SmallStaticPokemon(new Vector2(4850 + 25, 3900 + 20 + 10)));
             addEntity(new LargeStaticPokemon(new Vector2(200, 3650)));
             addEntity(new LargeStaticPokemon(new Vector2(4775, 4800)));
 
@@ -66,14 +66,13 @@ namespace CatchEm
             // Add Ghost Pokemon
             addEntity(new GhostPokemon(new Vector2(0, 0)));
             addEntity(new GhostPokemon(new Vector2(0, 0)));
-            
 
 
             // Add Walls
             dynamic wall_data = JsonConvert.DeserializeObject(Utilities.ReadEmbeddedResource("WallLayout.json"));
             foreach (var wall in wall_data)
             {
-                addEntity(new Wall((int)wall.x, (int)wall.y, (int)wall.width, (int)wall.height));
+                addEntity(new Wall((int)wall.x, (int)wall.y, (int)wall.width, (int)wall.height, (int)wall.type));
             }
 
         }

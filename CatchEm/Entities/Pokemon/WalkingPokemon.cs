@@ -18,6 +18,7 @@ namespace CatchEm
 
         public WalkingPokemon(Vector2 position, List<Vector2> path, float speed = 5, Tween tween = Tween.LinearPause) : base(textures, position, path, speed, tween)
         {
+            getComponent<Collider>().physicsLayer = (1 << 4);
         }
 
     }

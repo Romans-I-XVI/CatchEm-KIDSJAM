@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <SourceFile>/home/asojka09/Development/MonoGame/CatchEm/CatchEm/Content/textures/wall.png</SourceFile>
-  <SourceTime>2017-01-07T22:11:42-06:00</SourceTime>
+  <SourceTime>2017-01-08T08:48:03-06:00</SourceTime>
   <DestFile>/home/asojka09/Development/MonoGame/CatchEm/CatchEm/Content/bin/DesktopGL/textures/wall.xnb</DestFile>
-  <DestTime>2017-01-07T22:11:48-06:00</DestTime>
+  <DestTime>2017-01-08T08:48:07-06:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2016-12-22T16:30:41-06:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

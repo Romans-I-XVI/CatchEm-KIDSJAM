@@ -43,5 +43,8 @@
     <File>/home/asojka09/Development/MonoGame/CatchEm/CatchEm/Content/textures/crosshair.png</File>
     <File>/home/asojka09/Development/MonoGame/CatchEm/CatchEm/Content/textures/player.png</File>
     <File>/home/asojka09/Development/MonoGame/CatchEm/CatchEm/Content/textures/wall.png</File>
+    <File>/home/asojka09/Development/MonoGame/CatchEm/CatchEm/Content/textures/wall_1.png</File>
+    <File>/home/asojka09/Development/MonoGame/CatchEm/CatchEm/Content/textures/wall_2.png</File>
+    <File>/home/asojka09/Development/MonoGame/CatchEm/CatchEm/Content/textures/wall_3.png</File>
   </SourceFiles>
 </SourceFileCollection>
