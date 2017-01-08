@@ -16,6 +16,7 @@ namespace CatchEm
 
         public DiggingPokemon(Vector2 position, List<Vector2> path, float speed = 2, Tween tween = Tween.LinearPause) : base(textures, position, path, speed, tween)
         {
+            RespawnRate = 5;
             getComponent<Sprite>().setRenderLayer(100000001);
         }
 
