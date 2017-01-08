@@ -23,7 +23,6 @@ namespace CatchEm
 
         public SmallStaticPokemon(Vector2 position) : base(textures, position)
         {
-            getComponent<Collider>().physicsLayer = (1 << 4);
         }
     }
 }

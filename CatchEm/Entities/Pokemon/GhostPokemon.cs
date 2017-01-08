@@ -38,9 +38,11 @@ namespace CatchEm
             if (changing_location)
             {
                 CollisionResult collisionResult = new CollisionResult();
-            change_position:
+                int i = 0;
+                change_position:
                 position = new Vector2(Nez.Random.range(200 + 25, 4800 - 25), Nez.Random.range(2500, 4800 - 25));
-                if (getComponent<Collider>().collidesWithAny(out collisionResult))
+                i++;
+                if (getComponent<Collider>().collidesWithAny(out collisionResult) && i < 10)
                 {
                     goto change_position;
                 }

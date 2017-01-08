@@ -9,11 +9,9 @@ namespace CatchEm
     public class Crosshair : Entity
     {
         public static Texture2D texture = Core.content.Load<Texture2D>(Content.Textures.crosshair);
-        Camera _follow_camera;
 
-        public Crosshair(Camera follow_camera)
+        public Crosshair()
         {
-            _follow_camera = follow_camera;
             addComponent(new Sprite(texture));
             transform.position = new Microsoft.Xna.Framework.Vector2(200, 4500);
         }

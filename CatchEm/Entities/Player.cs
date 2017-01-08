@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Graphics;
 using Nez;
 using Nez.Sprites;
@@ -10,6 +11,7 @@ namespace CatchEm
     public class Player : Entity, IVelocity
     {
         public static Texture2D texture = Core.content.Load<Texture2D>(Content.Textures.player);
+        static SoundEffect snd_jump2 = Core.content.Load<SoundEffect>(Content.Sounds.jump2);
 
         public int NumberOfPokemon = 1;
         public Vector2 velocity { get; set; }
@@ -33,6 +35,7 @@ namespace CatchEm
             addComponent(new Sprite(texture));
             addComponent(new Movement());
             addComponent(new Gravity());
+            getComponent<Movement>().Jumped += () => snd_jump2.Play();
 
             // add colliders
             _collider_feet = new BoxCollider(-(texture.Width / 2) + 10, texture.Height / 2 - 10, texture.Width - 20, 10);

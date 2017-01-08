@@ -19,7 +19,6 @@ namespace CatchEm
         protected override void Initialize()
         {
             base.Initialize();
-
             var scene_play = new ScenePlay();
             Core.scene = scene_play;
         }

@@ -14,6 +14,8 @@ namespace CatchEm
         }
 
         public states state = states.idle;
+        public event dgJumped Jumped;
+        public delegate void dgJumped();
 
         public Movement()
         {
@@ -39,6 +41,11 @@ namespace CatchEm
             return total_distance;
         }
 
+        public static float Hypotenuse(Vector2 vector)
+        {
+            return (float)Math.Sqrt(vector.X * vector.X + vector.Y * vector.Y);
+        }
+
         public void update()
         {
             if (!(entity is IVelocity))
@@ -53,6 +60,8 @@ namespace CatchEm
                 var gravity_component = entity.getComponent<Gravity>();
                 if (gravity_component != null)
                     gravity_component.enabled = true;
+                if (Jumped != null)
+                    Jumped();
             }
 
             if (Input.isKeyDown(Keys.D) && e.velocity.X < 800)

@@ -5,6 +5,15 @@ namespace Nez
 {
     class Content
     {
+		public static class Sounds
+		{
+			public const string @catch = @"sounds/catch";
+			public const string catch2 = @"sounds/catch2";
+			public const string jump = @"sounds/jump";
+			public const string jump2 = @"sounds/jump2";
+			public const string miss = @"sounds/miss";
+		}
+
 		public static class Textures
 		{
 			public static class Pokemon

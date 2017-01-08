@@ -46,5 +46,10 @@
     <File>/home/asojka09/Development/MonoGame/CatchEm/CatchEm/Content/textures/wall_1.png</File>
     <File>/home/asojka09/Development/MonoGame/CatchEm/CatchEm/Content/textures/wall_2.png</File>
     <File>/home/asojka09/Development/MonoGame/CatchEm/CatchEm/Content/textures/wall_3.png</File>
+    <File>/home/asojka09/Development/MonoGame/CatchEm/CatchEm/Content/sounds/catch.wav</File>
+    <File>/home/asojka09/Development/MonoGame/CatchEm/CatchEm/Content/sounds/catch2.wav</File>
+    <File>/home/asojka09/Development/MonoGame/CatchEm/CatchEm/Content/sounds/jump.wav</File>
+    <File>/home/asojka09/Development/MonoGame/CatchEm/CatchEm/Content/sounds/jump2.wav</File>
+    <File>/home/asojka09/Development/MonoGame/CatchEm/CatchEm/Content/sounds/miss.wav</File>
   </SourceFiles>
 </SourceFileCollection>

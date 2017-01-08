@@ -33,7 +33,8 @@ namespace CatchEm
             var sprite = getComponent<Sprite>();
             var collider = getComponent<BoxCollider>();
             sprite.enabled = false;
-            collider.enabled = false;
+            var old_physics_layer = collider.physicsLayer;
+            collider.physicsLayer = (1 << 100);
             Core.schedule(RespawnRate, (obj) => {
                 var previous_layer_depth = getComponent<Sprite>().renderLayer;
                 removeComponent<Sprite>();
@@ -44,7 +45,7 @@ namespace CatchEm
                 addComponent(sprite);
                 collider.width = new_texture.Width;
                 collider.height = new_texture.Height;
-                collider.enabled = true;
+                collider.physicsLayer = old_physics_layer;
             });
         }
 

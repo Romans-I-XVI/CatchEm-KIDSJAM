@@ -67,6 +67,7 @@ namespace CatchEm
             addEntity(new GhostPokemon(new Vector2(0, 0)));
             addEntity(new GhostPokemon(new Vector2(0, 0)));
 
+            //addEntity(new Crosshair());
 
             // Add Walls
             dynamic wall_data = JsonConvert.DeserializeObject(Utilities.ReadEmbeddedResource("WallLayout.json"));

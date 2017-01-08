@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Graphics;
 using Nez;
 using Nez.Sprites;
@@ -9,7 +10,7 @@ namespace CatchEm
 {
     public class Pokeball : Entity, IVelocity
     {
-        List<Texture2D> textures = new List<Texture2D>()
+        static List<Texture2D> textures = new List<Texture2D>()
         {
             Core.content.Load<Texture2D>(Content.Textures.ball_1),
             Core.content.Load<Texture2D>(Content.Textures.ball_2),
@@ -19,6 +20,10 @@ namespace CatchEm
             Core.content.Load<Texture2D>(Content.Textures.ball_4),
             //Core.content.Load<Texture2D>(Content.Textures.ball_5)
         };
+        static SoundEffect snd_catch_pokemon = Core.content.Load<SoundEffect>(Content.Sounds.@catch);
+        static SoundEffect snd_catch_large_pokemon = Core.content.Load<SoundEffect>(Content.Sounds.catch2);
+        static SoundEffect snd_miss_pokemon = Core.content.Load<SoundEffect>(Content.Sounds.miss);
+
         public Vector2 velocity { get; set; }
         public bool HasCollided = false;
         Player _player;
@@ -43,15 +48,23 @@ namespace CatchEm
             CollisionResult collisionResult;
             collisionResult = getComponent<Friction>().process();
 
-            if (!HasCollided && collisionResult.collider != null)
+            if (!HasCollided && collisionResult.collider != null && collisionResult.collider.entity.getComponent<Sprite>() != null && collisionResult.collider.entity.getComponent<Sprite>().enabled)
             {
                 HasCollided = true;
                 if (collisionResult.collider.entity is Pokemon && _player != null)
                 {
                     var pokemon = (Pokemon)collisionResult.collider.entity;
+
+                    if (pokemon is LargeStaticPokemon || pokemon is OnyxPokemon)
+                        snd_catch_large_pokemon.Play();
+                    else
+                        snd_catch_pokemon.Play();
+                        
                     pokemon.Catch(_player.NumberOfPokemon);
                     _player.NumberOfPokemon++;
                 }
+                else
+                    snd_miss_pokemon.Play(0.7f, 0, 0);
             }
 
             position += new Vector2(velocity.X * Time.deltaTime, velocity.Y * Time.deltaTime);

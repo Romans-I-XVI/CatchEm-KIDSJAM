@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.Xna.Framework;
 using Nez;
+using Nez.Sprites;
 
 namespace CatchEm
 {
@@ -9,6 +10,8 @@ namespace CatchEm
         Collider _collider;
         float _vertical_friction;
         float _horizontal_friction;
+        public delegate void dgCollision(CollisionResult collisionResult);
+        public event dgCollision Collision;
 
         public Friction(Collider collider, float vertical_friction = 0.6f, float horizontal_friction = 0.99f)
         {
@@ -25,7 +28,7 @@ namespace CatchEm
 
             var velocity = ((IVelocity)entity).velocity;
 
-            if (_collider.collidesWithAny(out collisionResult))
+            if (_collider.collidesWithAny(out collisionResult) && collisionResult.collider.entity.getComponent<Sprite>() != null && collisionResult.collider.entity.getComponent<Sprite>().enabled)
             {
                 //velocity = new Vector2(velocity.X * 0.99f, velocity.Y * 0.99f);
                 var y_flip = 1;
@@ -37,6 +40,9 @@ namespace CatchEm
                     y_flip = -1;
                 velocity *= new Vector2(x_flip, y_flip);
                 velocity *= new Vector2(_horizontal_friction, _vertical_friction);
+
+                if (Collision != null)
+                    Collision(collisionResult);
                 //if (Math.Abs(velocity.Y) < 50)
                 //    velocity = new Vector2(velocity.X, 0);
                 //if (Math.Abs(velocity.X) < 1)
