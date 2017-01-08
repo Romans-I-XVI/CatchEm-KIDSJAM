@@ -10,9 +10,10 @@ namespace CatchEm
     {
         public static List<Texture2D> textures = new List<Texture2D>()
         {
-            //Core.content.Load<Texture2D>(Content.Textures.Pokemon.pikachu_2),
-            //Core.content.Load<Texture2D>(Content.Textures.Pokemon.vulpix),
             Core.content.Load<Texture2D>(Content.Textures.Pokemon.cubone),
+            Core.content.Load<Texture2D>(Content.Textures.Pokemon.bellsprout),
+            Core.content.Load<Texture2D>(Content.Textures.Pokemon.gloom),
+            Core.content.Load<Texture2D>(Content.Textures.Pokemon.voltorb),
         };
 
         readonly GameTimeSpan _timer = new GameTimeSpan();

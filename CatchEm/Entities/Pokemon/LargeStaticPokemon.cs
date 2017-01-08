@@ -11,6 +11,9 @@ namespace CatchEm
         public static List<Texture2D> textures = new List<Texture2D>()
         {
             Core.content.Load<Texture2D>(Content.Textures.Pokemon.lapras),
+            Core.content.Load<Texture2D>(Content.Textures.Pokemon.lapras_2),
+            Core.content.Load<Texture2D>(Content.Textures.Pokemon.snorlax),
+            Core.content.Load<Texture2D>(Content.Textures.Pokemon.executor),
         };
 
         readonly GameTimeSpan _timer = new GameTimeSpan();

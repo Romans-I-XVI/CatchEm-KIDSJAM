@@ -11,10 +11,9 @@ namespace CatchEm
     {
         public static List<Texture2D> textures = new List<Texture2D>()
         {
-            Core.content.Load<Texture2D>(Content.Textures.player),
-            Core.content.Load<Texture2D>(Content.Textures.player),
-            Core.content.Load<Texture2D>(Content.Textures.player),
-            Core.content.Load<Texture2D>(Content.Textures.player)
+            Core.content.Load<Texture2D>(Content.Textures.Pokemon.gastly),
+            Core.content.Load<Texture2D>(Content.Textures.Pokemon.haunter),
+            Core.content.Load<Texture2D>(Content.Textures.Pokemon.gengar),
         };
 
         bool changing_location;
