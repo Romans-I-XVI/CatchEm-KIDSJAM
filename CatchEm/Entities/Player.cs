@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
 using Nez;
 using Nez.Sprites;
 
@@ -19,10 +20,18 @@ namespace CatchEm
         Collider _collider_feet;
         Collider _collider_body;
         const float ball_speed = 1000;
+        VirtualButton _fire;
+        public float _aim_direction;
 
 
         public Player(Camera scene_camera)
         {
+            _fire = new VirtualButton();
+            _fire.addMouseLeftButton();
+            _fire.addGamePadButton(0, Buttons.B);
+            _fire.addGamePadButton(0, Buttons.RightTrigger);
+            _fire.addGamePadButton(0, Buttons.RightShoulder);
+
             name = "player";
             scene_camera.zoomOut(0.2f);
             var camera = new FollowCamera(this, scene_camera);
@@ -67,11 +76,9 @@ namespace CatchEm
 
             position += deltaMovement;
 
-            var mouse_position = scene.camera.mouseToWorldPoint();
-            float mouse_rotation = (float)Math.Atan2(mouse_position.Y - position.Y, mouse_position.X - position.X);
-            if (Input.leftMouseButtonPressed)
+            if (_fire.isPressed)
             {
-                scene.addEntity(new Pokeball(this, position, new Vector2((float)(Math.Cos(mouse_rotation) * ball_speed), (float)(Math.Sin(mouse_rotation) * ball_speed))));
+                scene.addEntity(new Pokeball(this, position, new Vector2((float)(Math.Cos(_aim_direction) * ball_speed), (float)(Math.Sin(_aim_direction) * ball_speed))));
             }
 
             positions.Insert(0, position);
@@ -83,9 +90,9 @@ namespace CatchEm
 
             // Flip sprite if necessary
             var sprite = getComponent<Sprite>();
-            if (mouse_position.X < position.X)
+            if (_aim_direction < -1.57f || _aim_direction > 1.57f)
                 sprite.flipX = true;
-            else if (mouse_position.X > position.X)
+            else if (_aim_direction > -1.57 && _aim_direction < 1.57)
                 sprite.flipX = false;
 
             getComponent<Friction>().process();

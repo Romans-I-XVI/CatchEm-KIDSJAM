@@ -16,9 +16,24 @@ namespace CatchEm
         public states state = states.idle;
         public event dgJumped Jumped;
         public delegate void dgJumped();
+        VirtualButton _jump;
+        VirtualButton _right;
+        VirtualButton _left;
 
         public Movement()
         {
+            _left = new VirtualButton();
+            _left.addKeyboardKey(Keys.A);
+            _left.addGamePadDPad(0, Direction.Left);
+
+            _right = new VirtualButton();
+            _right.addKeyboardKey(Keys.D);
+            _right.addGamePadDPad(0, Direction.Right);
+
+            _jump = new VirtualButton();
+            _jump.addKeyboardKey(Keys.Space);
+            _jump.addGamePadButton(0, Buttons.A);
+            _jump.addGamePadDPad(0, Direction.Up);
         }
 
         public static Vector2 MoveTowards(Vector2 current_pos, Vector2 dest_pos, float speed)
@@ -53,7 +68,7 @@ namespace CatchEm
 
             var e = (IVelocity)entity;
 
-            if ((Input.isKeyDown(Keys.Space)) && state != states.jumping)
+            if (_jump.isDown && state != states.jumping)
             {
                 state = states.jumping;
                 e.velocity += new Vector2(0, -(Gravity.accel * 25.2f));
@@ -64,7 +79,7 @@ namespace CatchEm
                     Jumped();
             }
 
-            if (Input.isKeyDown(Keys.D) && e.velocity.X < 800)
+            if (_right.isDown && e.velocity.X < 800)
             {
                 float x_accel = 20;
                 if (e.velocity.X < 0)
@@ -72,7 +87,7 @@ namespace CatchEm
                 e.velocity += new Vector2(x_accel, 0);
             }
 
-            if (Input.isKeyDown(Keys.A) && e.velocity.X > -800)
+            if (_left.isDown && e.velocity.X > -800)
             {
                 float x_accel = -20;
                 if (e.velocity.X > 0)
@@ -80,7 +95,7 @@ namespace CatchEm
                 e.velocity += new Vector2(x_accel, 0);
             }
 
-            if (!(Input.isKeyDown(Keys.A) || Input.isKeyDown(Keys.D)) && (state != states.jumping))
+            if (!(_right.isDown || _left.isDown) && (state != states.jumping))
                 e.velocity *= new Vector2(0.8f, 1);
         }
     }
