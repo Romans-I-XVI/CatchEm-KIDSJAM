@@ -8,7 +8,7 @@ namespace CatchEm
 {
     public class CaughtPokemon : Entity
     {
-        public const int POSITION_OFFSET = 10;
+        public const int POSITION_OFFSET = 14;
         public static int PokemonLayer = 100;
         private bool _reached_player = false;
         int _caught_index = 0;
