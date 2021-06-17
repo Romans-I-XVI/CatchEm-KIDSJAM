@@ -14,6 +14,7 @@ namespace CatchEm
             Core.content.Load<Texture2D>(Content.Textures.Pokemon.gastly),
             Core.content.Load<Texture2D>(Content.Textures.Pokemon.haunter),
             Core.content.Load<Texture2D>(Content.Textures.Pokemon.gengar),
+            Core.content.Load<Texture2D>(Content.Textures.Pokemon.ghostini),
         };
 
         bool changing_location;
