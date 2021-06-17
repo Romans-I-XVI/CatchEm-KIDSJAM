@@ -26,6 +26,7 @@ namespace CatchEm
 
         public Vector2 velocity { get; set; }
         public bool HasCollided = false;
+        private bool HitPokemon = false;
         Player _player;
 
         public Pokeball(Player player, Vector2 position, Vector2 velocity)
@@ -59,9 +60,10 @@ namespace CatchEm
                         snd_catch_large_pokemon.Play();
                     else
                         snd_catch_pokemon.Play();
-                        
+
                     pokemon.Catch(_player.NumberOfPokemon);
                     _player.NumberOfPokemon++;
+                    HitPokemon = true;
                 }
                 else
                     snd_miss_pokemon.Play(0.7f, 0, 0);
@@ -69,9 +71,9 @@ namespace CatchEm
 
             position += new Vector2(velocity.X * Time.deltaTime, velocity.Y * Time.deltaTime);
 
-            if (HasCollided)
-            {
-                getComponent<Sprite>().color *= 0.9f;
+            if (HasCollided) {
+                float fade_rate = (HitPokemon) ? 0.7f : 0.95f;
+                getComponent<Sprite>().color *= fade_rate;
                 if (getComponent<Sprite>().color.A < 0.1f)
                     destroy();
             }
