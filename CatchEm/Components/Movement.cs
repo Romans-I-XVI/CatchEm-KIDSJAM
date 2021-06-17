@@ -14,7 +14,7 @@ namespace CatchEm
         }
 
         private const float MaxSpeed = 700;
-        private const float AccelSpeed = 40;
+        private const float AccelSpeed = 30;
         private const float DecelerationMultiplier = 0.7f;
         public states state = states.idle;
         public event dgJumped Jumped;
@@ -84,12 +84,18 @@ namespace CatchEm
 
             if (_right.isDown && e.velocity.X < Movement.MaxSpeed)
             {
-                e.velocity += new Vector2(Movement.AccelSpeed, 0);
+                float x_accel = Movement.AccelSpeed;
+                if (e.velocity.X < 0)
+                    x_accel = Movement.AccelSpeed * 4;
+                e.velocity += new Vector2(x_accel, 0);
             }
 
             if (_left.isDown && e.velocity.X > -Movement.MaxSpeed)
             {
-                e.velocity += new Vector2(-Movement.AccelSpeed, 0);
+                float x_accel = -Movement.AccelSpeed;
+                if (e.velocity.X > 0)
+                    x_accel = -Movement.AccelSpeed * 4;
+                e.velocity += new Vector2(x_accel, 0);
             }
 
             if (!(_right.isDown || _left.isDown))
