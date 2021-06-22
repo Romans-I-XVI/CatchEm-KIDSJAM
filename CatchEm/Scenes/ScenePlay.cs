@@ -34,7 +34,7 @@ namespace CatchEm
             addEntity(new FlyingPokemon(new Vector2(1300, 3800), new List<Vector2>() { new Vector2(650, 3800), new Vector2(1700, 3800) }, 4));
             addEntity(new FlyingPokemon(new Vector2(1300, 3800), new List<Vector2>() { new Vector2(1950, 4200), new Vector2(2200, 4200) }, 2));
             addEntity(new FlyingPokemon(new Vector2(1300, 3800), new List<Vector2>() { new Vector2(2250, 4200), new Vector2(2600, 4200) }, 2));
-            addEntity(new FlyingPokemon(new Vector2(3050, 3050), new List<Vector2>() { 
+            addEntity(new FlyingPokemon(new Vector2(3050, 3050), new List<Vector2>() {
                 new Vector2(3050, 3050-50),
                 new Vector2(3250, 3250-50),
                 new Vector2(3450, 3050-50),
@@ -54,11 +54,12 @@ namespace CatchEm
             addEntity(new LargeStaticPokemon(new Vector2(4775, 4800)));
 
             // Add Walking Pokemon
-            addEntity(new WalkingPokemon(new Vector2(2550, 4850+10), new List<Vector2>() { new Vector2(2550, 4850 + 10), new Vector2(3000, 4850 + 10) }, 1));
-            addEntity(new WalkingPokemon(new Vector2(2550, 4850 + 10), new List<Vector2>() { new Vector2(2100, 4850 + 10), new Vector2(2450, 4850 + 10) }, 1));
+            // addEntity(new WalkingPokemon(new Vector2(2550, 4850+10), new List<Vector2>() { new Vector2(2550, 4850 + 10), new Vector2(3000, 4850 + 10) }, 1));
+            // addEntity(new WalkingPokemon(new Vector2(2550, 4850 + 10), new List<Vector2>() { new Vector2(2100, 4850 + 10), new Vector2(2450, 4850 + 10) }, 1));
+            addEntity(new HatchingPokemon(new Vector2(2550, 4850 + 10), new List<Vector2>() { new Vector2(2100, 4850 + 10), new Vector2(2450, 4850 + 10) }, 1));
             addEntity(new OnyxPokemon(new Vector2(300, 3150+10), new List<Vector2>() { new Vector2(1000, 3150 + 10), new Vector2(300, 3150 + 10) }, 1));
 
-            // Add Digging Pokemond 
+            // Add Digging Pokemond
             addEntity(new DiggingPokemon(new Vector2(3450 + 25, 4900 + 30), new List<Vector2>() { new Vector2(3450 + 25, 4900 ), new Vector2(3450 + 25, 4850 + 200) }, 0.85f));
             addEntity(new DiggingPokemon(new Vector2(3550 + 25, 4900 + 30), new List<Vector2>() { new Vector2(3550 + 25, 4900 ), new Vector2(3550 + 25, 4850 + 200) }, 0.8f));
             addEntity(new DiggingPokemon(new Vector2(3650 + 25, 4900 + 30), new List<Vector2>() { new Vector2(3650 + 25, 4900 ), new Vector2(3650 + 25, 4850 + 200) }, 0.75f));

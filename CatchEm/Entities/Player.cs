@@ -63,7 +63,7 @@ namespace CatchEm
             addComponent(_collider_feet);
             addComponent(_collider_body);
             addComponent(new Friction(_collider_body, 1, 0.5f));
-            
+
         }
 
 
@@ -110,6 +110,10 @@ namespace CatchEm
                 if (Math.Abs(velocity.Y) < 10)
                     velocity = new Vector2(velocity.X, 0);
                 getComponent<Movement>().state = Movement.states.idle;
+
+                if (collisionResult.collider.entity is HatchingPokemon pokemon && !pokemon.Hatched) {
+                    pokemon.Hatch();
+                }
             }
             else
             {

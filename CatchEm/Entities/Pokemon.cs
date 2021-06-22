@@ -29,9 +29,9 @@ namespace CatchEm
 
         public void Catch(int caught_index)
         {
-            scene.addEntity(new CaughtPokemon(_textures[_current_texture], position, caught_index));
             var sprite = getComponent<Sprite>();
             var collider = getComponent<BoxCollider>();
+            scene.addEntity(new CaughtPokemon(sprite.subtexture.texture2D, position, caught_index));
             sprite.enabled = false;
             var old_physics_layer = collider.physicsLayer;
             collider.physicsLayer = (1 << 100);
@@ -60,7 +60,7 @@ namespace CatchEm
                 sprite.flipX = false;
             else if (_old_position.X > position.X)
                 sprite.flipX = true;
-            
+
             _old_position = position;
         }
 
