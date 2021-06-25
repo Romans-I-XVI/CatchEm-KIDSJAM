@@ -31,6 +31,8 @@ namespace Nez
 				public const string flareon = @"textures/pokemon/flareon";
 				public const string gastly = @"textures/pokemon/gastly";
 				public const string ghostini = @"textures/pokemon/ghostini";
+				public const string bananaman = @"textures/pokemon/bananaman";
+				public const string bananaman_egg = @"textures/pokemon/bananaman_egg";
 				public const string gengar = @"textures/pokemon/gengar";
 				public const string geodude = @"textures/pokemon/geodude";
 				public const string gloom = @"textures/pokemon/gloom";

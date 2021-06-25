@@ -111,8 +111,11 @@ namespace CatchEm
                     velocity = new Vector2(velocity.X, 0);
                 getComponent<Movement>().state = Movement.states.idle;
 
-                if (collisionResult.collider.entity is HatchingPokemon pokemon && !pokemon.Hatched) {
-                    pokemon.Hatch();
+                if (collisionResult.collider?.entity is HatchingPokemon) {
+                    var pokemon = (HatchingPokemon)collisionResult.collider.entity;
+                    if (!pokemon.Hatched) {
+                        pokemon.Hatch();
+                    }
                 }
             }
             else

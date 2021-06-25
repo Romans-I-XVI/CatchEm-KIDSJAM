@@ -11,15 +11,15 @@ namespace CatchEm
 	{
 		public static List<Texture2D> egg_textures = new List<Texture2D>()
 		{
-			Core.content.Load<Texture2D>(Content.Textures.Pokemon.duduo),
+			Core.content.Load<Texture2D>(Content.Textures.Pokemon.bananaman_egg),
 		};
 
 		public static List<Texture2D> pokemon_textures = new List<Texture2D>()
 		{
-			Core.content.Load<Texture2D>(Content.Textures.Pokemon.dotrio),
+			Core.content.Load<Texture2D>(Content.Textures.Pokemon.bananaman),
 		};
 
-		public bool Hatched { get; private set; }
+		public bool Hatched { get; private set; } = false;
 
 		public HatchingPokemon(Vector2 position, List<Vector2> path, float speed = 5, Tween tween = Tween.LinearPause) : base(egg_textures, position)
 		{
@@ -35,14 +35,10 @@ namespace CatchEm
 			}
 
 			int i = Nez.Random.range(0, pokemon_textures.Count);
-			// var collider = this.getComponent<BoxCollider>();
-			// if (collider != null) {
-			// 	this.removeComponent(collider);
-			// }
-
-
 			addComponent(new Sprite(pokemon_textures[i]));
 			getComponent<Sprite>().setRenderLayer(100);
+
+			this.Hatched = true;
 		}
 	}
 }
