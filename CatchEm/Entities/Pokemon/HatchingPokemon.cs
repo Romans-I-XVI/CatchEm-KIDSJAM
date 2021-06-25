@@ -21,9 +21,7 @@ namespace CatchEm
 
 		public bool Hatched { get; private set; } = false;
 
-		public HatchingPokemon(Vector2 position, List<Vector2> path, float speed = 5, Tween tween = Tween.LinearPause) : base(egg_textures, position)
-		{
-		}
+		public HatchingPokemon(Vector2 position) : base(egg_textures, position) {}
 
 		public void Hatch() {
 			if (this.Hatched)
@@ -34,11 +32,15 @@ namespace CatchEm
 				this.removeComponent(sprite);
 			}
 
-			int i = Nez.Random.range(0, pokemon_textures.Count);
-			addComponent(new Sprite(pokemon_textures[i]));
+			addComponent(new Sprite(pokemon_textures[_current_texture]));
 			getComponent<Sprite>().setRenderLayer(100);
 
 			this.Hatched = true;
+		}
+
+		protected override void OnRespawn() {
+			base.OnRespawn();
+			this.Hatched = false;
 		}
 	}
 }
