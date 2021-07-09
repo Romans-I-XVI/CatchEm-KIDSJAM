@@ -11,7 +11,7 @@ namespace CatchEm
     {
         public Vector2 velocity { get; set; }
         List<Texture2D> _textures;
-        int _current_texture;
+        protected int _current_texture { get; private set; }
         Vector2 _old_position = new Vector2();
 
         public float RespawnRate = 50;
@@ -29,9 +29,9 @@ namespace CatchEm
 
         public void Catch(int caught_index)
         {
-            scene.addEntity(new CaughtPokemon(_textures[_current_texture], position, caught_index));
             var sprite = getComponent<Sprite>();
             var collider = getComponent<BoxCollider>();
+            scene.addEntity(new CaughtPokemon(sprite.subtexture.texture2D, position, caught_index));
             sprite.enabled = false;
             var old_physics_layer = collider.physicsLayer;
             collider.physicsLayer = (1 << 100);
@@ -46,6 +46,7 @@ namespace CatchEm
                 collider.width = new_texture.Width;
                 collider.height = new_texture.Height;
                 collider.physicsLayer = old_physics_layer;
+                this.OnRespawn();
             });
         }
 
@@ -60,9 +61,11 @@ namespace CatchEm
                 sprite.flipX = false;
             else if (_old_position.X > position.X)
                 sprite.flipX = true;
-            
+
             _old_position = position;
         }
+
+        protected virtual void OnRespawn() {}
 
     }
 }
