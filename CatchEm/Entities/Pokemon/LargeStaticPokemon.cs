@@ -14,6 +14,7 @@ namespace CatchEm
             Core.content.Load<Texture2D>(Content.Textures.Pokemon.lapras_2),
             Core.content.Load<Texture2D>(Content.Textures.Pokemon.snorlax),
             Core.content.Load<Texture2D>(Content.Textures.Pokemon.executor),
+            Core.content.Load<Texture2D>(Content.Textures.Pokemon.waterdragon),
         };
 
         public LargeStaticPokemon(Vector2 position) : base(textures, position)
