@@ -51,6 +51,7 @@ namespace Nez
 				public const string squirtle_2 = @"textures/pokemon/squirtle_2";
 				public const string voltorb = @"textures/pokemon/voltorb";
 				public const string vulpix = @"textures/pokemon/vulpix";
+				public const string waterdragon = @"textures/pokemon/waterdragon";
 			}
 
 			public const string arrow = @"textures/arrow";
